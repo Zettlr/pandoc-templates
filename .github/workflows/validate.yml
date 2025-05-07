@@ -1,0 +1,29 @@
+name: Validate
+
+on:
+  pull_request:
+    paths:
+      - 'templates/**'
+  workflow_dispatch: {} # Enable manual triggers
+  workflow_call: {} # Enable other workflows to call this one
+
+env:
+  NODE_VERSION: '22'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - name: Setup NodeJS ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+      - name: Install dependencies
+        run: npm install
+      - name: Validate
+        run: npm run validate

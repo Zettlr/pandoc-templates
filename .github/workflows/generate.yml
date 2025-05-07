@@ -1,0 +1,38 @@
+name: Generate
+
+on:
+  push:
+    paths:
+      - 'templates/**'
+  workflow_dispatch: {} # Enable manual triggers
+  workflow_call: {} # Enable other workflows to call this one
+
+env:
+  NODE_VERSION: '22'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - name: Setup NodeJS ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+      - name: Install dependencies
+        run: npm install
+      - name: Validate
+        run: npm run generate
+      - name: Commit
+        run: |
+          git add -A
+          git diff-index --quiet HEAD || git commit -m "chore: Regenerate metadata"
+      - name: Push changes
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref_name }}
