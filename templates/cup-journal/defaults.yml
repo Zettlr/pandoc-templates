@@ -1,0 +1,5 @@
+# Defaults file for CUP Journal template
+reader: markdown
+writer: pdf
+pdf-engine: xelatex
+template: ./template.tex

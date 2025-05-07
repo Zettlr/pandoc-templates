@@ -1,0 +1,125 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% To select a journal, use its code for the 
+% journal= option in the \documentclass command.
+% The journal codes for this template are:
+% 
+% Annals of Actuarial Science: aas
+% British Journal of Political Science: jps
+% Network Science: nws
+% Political Analysis: pla
+% Political Science Research and Methods: ram
+% Evolutionary Human Sciences: ehs
+% Natural Language Processing: nlp
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[
+  journal=$cup-journal$,
+  manuscript=Research\ Article,
+  year=,
+  volume=,
+]{cup-journal}
+
+\usepackage{amsmath}
+\usepackage[nopatch]{microtype}
+\usepackage{booktabs}
+
+$fonts.latex()$
+$font-settings.latex()$
+$common.latex()$
+$for(header-includes)$
+$header-includes$
+$endfor$
+$after-header-includes.latex()$
+$hypersetup.latex()$
+
+\title{$title$}
+
+$if(author)$
+$for(author)$
+\author{$author.name$}
+\affiliation{$author.affiliation$}
+% Every author with an email set will be assumed corresponding author.
+$if(author.email)$
+\email[$author.name$]{$author.email$}
+$endif$
+$endfor$
+$endif$
+
+\keywords{$for(keywords)$$keywords$$sep$, $endfor$}
+
+\begin{document}
+
+% DOC START
+
+$if(abstract)$
+\begin{abstract}
+$abstract$
+\end{abstract}
+$endif$
+
+$for(include-before)$
+$include-before$
+
+$endfor$
+
+$body$
+
+$if(acknowledgements)$
+\paragraph{Acknowledgments}
+$acknowledgements$
+$endif$
+
+$if(funding-statement)$
+\paragraph{Funding Statement}
+$funding-statement$
+$endif$
+
+$if(competing-interests)$
+\paragraph{Competing Interests}
+$competing-interests$
+$endif$
+
+$if(data-availability-statement)$
+\paragraph{Data Availability Statement}
+$data-availability-statement$
+$endif$
+
+$if(ethical-standards)$
+\paragraph{Ethical Standards}
+$ethical-standards$
+$endif$
+
+$if(author-contributions)$
+\paragraph{Author Contributions}
+$author-contributions$
+$endif$
+
+%\endnote in some journals will behave like \footnote; and \printendnotes will not output anything. 
+\printendnotes
+
+$if(nocite-ids)$
+\nocite{$for(nocite-ids)$$it$$sep$, $endfor$}
+$endif$
+$if(natbib)$
+$if(bibliography)$
+$if(biblio-title)$
+$if(has-chapters)$
+\renewcommand\bibname{$biblio-title$}
+$else$
+\renewcommand\refname{$biblio-title$}
+$endif$
+$endif$
+\bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
+
+$endif$
+$endif$
+$if(biblatex)$
+\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
+
+$endif$
+
+$for(include-after)$
+$include-after$
+
+$endfor$
+
+\end{document}

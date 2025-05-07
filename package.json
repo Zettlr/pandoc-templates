@@ -1,0 +1,24 @@
+{
+  "name": "pandoc-templates",
+  "version": "1.0.0",
+  "description": "A collection of ready-to-use, Pandoc-compatible templates",
+  "main": "index.js",
+  "scripts": {
+    "validate": "node ./scripts/validate-templates.js",
+    "generate": "node ./scripts/generate-metadata.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "keywords": [
+    "pandoc",
+    "template",
+    "pdf",
+    "html"
+  ],
+  "author": "Hendrik Erz <hendrik@zettlr.com>",
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "yaml": "^2.7.1"
+  }
+}

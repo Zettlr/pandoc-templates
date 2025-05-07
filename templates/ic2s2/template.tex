@@ -1,0 +1,83 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{authblk}
+\usepackage{graphicx}
+\usepackage{mathptmx}
+\usepackage[singlespacing]{setspace}
+\usepackage[headheight=1in,margin=1in]{geometry}
+\usepackage{fancyhdr}
+
+\renewcommand{\headrulewidth}{0pt}
+\pagestyle{fancy}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering (taken from Pandoc default template)
+
+\makeatletter
+\def\@maketitle{%
+  \newpage
+
+  \begin{center}%
+  \let \footnote \thanks
+    {\LARGE \@title \par}%
+  \end{center}%
+  \par
+  \vskip 0.1em}
+\makeatother
+
+\lhead{}
+\chead{%
+  $$11$$$$^{th}$$ International Conference on Computational Social Science IC$$^{2}$$S$$^{2}$$\\
+  July 21-24, 2025, Norrköping, Sweden%
+}
+\rhead{}
+
+\graphicspath{{images/}}
+
+\title{$title$}
+
+$if(date)$
+\date{$date$}
+$else$
+\date{\today}
+$endif$
+
+\begin{document}
+
+\maketitle
+\thispagestyle{fancy}
+
+\begin{center}
+\textit{Keywords: $for(keywords)$$keywords$$sep$, $endfor$}
+\newline
+\end{center}
+
+\section*{Extended Abstract}
+
+$body$
+
+$if(nocite-ids)$
+\nocite{$for(nocite-ids)$$it$$sep$, $endfor$}
+$endif$
+
+\section*{References}
+
+$if(natbib)$
+$if(bibliography)$
+$if(biblio-title)$
+$if(has-chapters)$
+\renewcommand\bibname{$biblio-title$}
+$else$
+\renewcommand\refname{$biblio-title$}
+$endif$
+$endif$
+\bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
+
+$endif$
+$endif$
+$if(biblatex)$
+\printbibliography
+
+$endif$
+
+\end{document}

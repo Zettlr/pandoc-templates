@@ -1,0 +1,149 @@
+{
+  "title": "Pandoc Templates index.yml Schema",
+  "description": "A schema to validate template metadata files against.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "The full name of this template.",
+      "type": "string"
+    },
+    "version": {
+      "description": "The version number of this template. Must start at `1` and be incremented for each change.",
+      "type": "number"
+    },
+    "updated": {
+      "description": "The approximate time of the last change, in ISO 8601 (YYYY-MM-DDTHH:MM:SS+offset).",
+      "type": "string",
+      "format": "date-time"
+    },
+    "changelog": {
+      "description": "Describe changes to this template, one change per item",
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "description": {
+      "description": "Describe the template. Markdown is supported. Be as extensive as necessary, but as concise as possible. Do not include setup instructions here (see property `instructions`).",
+      "type": "string"
+    },
+    "instructions": {
+      "description": "If the template requires some setup, explain this here. Also, describe any variables the template supports.",
+      "type": "string"
+    },
+    "preview": {
+      "description": "Relative path to the preview picture (usually `preview.png`).",
+      "type": "string"
+    },
+    "authors": {
+      "type": "object",
+      "description": "People or organizations who have contributed to this template.",
+      "required": [
+        "original",
+        "templater"
+      ],
+      "properties": {
+        "original": {
+          "description": "Original author of the template itself (not the adaptation to Pandoc). Can be the same as `templater`.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string",
+                  "format": "email"
+                },
+                "website": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "name"
+              ]
+            }
+          ]
+        },
+        "templater": {
+          "description": "The person or institution who has adapted this template for usage with Pandoc (can be the same as `original`).",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string",
+                  "format": "email"
+                },
+                "website": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "name"
+              ]
+            }
+          ]
+        },
+        "contributors": {
+          "description": "A list of contributors to this template, aside from `original` and `templater`.",
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "website": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    "copyright": {
+      "description": "Use this to describe the template's copyright(s).",
+      "type": "string"
+    },
+    "license": {
+      "description": "Is the template licensed? If so, include a canonical form of the license name.",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "name",
+    "version",
+    "updated",
+    "description",
+    "preview",
+    "authors",
+    "copyright"
+  ]
+}

@@ -1,0 +1,17 @@
+name: "IC2S2 Conference Abstract"
+version: 1
+preview: preview.png
+updated: "2025-05-04T18:10:00+02:00"
+description: |
+  This template allows you to format your extended conference abstracts for the
+  International Conference of Computational Social Science (IC2S2). This
+  template is valid for IC2S2 2025 (Norrköping, Sweden).
+authors:
+  original:
+    name: "The International Society for Computational Social Science (ISCSS)"
+    website: "https://iscss.org/"
+  templater:
+    name: "Hendrik Erz"
+    email: "hendrik@zettlr.com"
+    website: "https://www.hendrik-erz.de/"
+copyright: "ICSSI"

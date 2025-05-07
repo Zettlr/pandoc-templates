@@ -1,0 +1,47 @@
+name: "Cambridge University Press Journal Template"
+version: 1
+updated: "2025-05-04T10:20:00+02:00"
+description: |
+  Use this template to export your submission to the journal Network Science
+  using the official template from Cambridge University Press.
+instructions: |
+  This template requires the frontmatter variables `title`, `abstract`,
+  `keywords`, and `author`. If any of these is not present, the PDF engine may
+  throw errors.
+
+  This template supports the frontmatter variable `cup-journal`, which must be
+  one of the supported journals of this template:
+
+  * Annals of Actuarial Science: `aas``
+  * British Journal of Political Science: `jps`
+  * Network Science: `nws`
+  * Political Analysis: `pla`
+  * Political Science Research and Methods: `ram`
+  * Evolutionary Human Sciences: `ehs`
+  * Natural Language Processing: `nlp`
+
+  Further frontmatter variables supported by this template:
+
+  * `title`: The article title
+  * `author`: A list of authors, with sub-keys `name`, `affiliation`, and
+    `email`. Property `email` is optional; each `author` that has `email` set is
+    assumed to be a corresponding author.
+  * `keywords`: A list of keywords
+  * `abstract`: The article's abstract
+  * `acknowledgements`: An acknowledgements section
+  * `funding-statement`: A funding statement
+  * `competing-interests`: A competing interests statement
+  * `data-availability-statement`: A data availability statement
+  * `ethical-standards`: A statement on ethical standards
+  * `author-contributions`: An author contributions statement
+  * `nocite-ids`: A list of works to be referenced in the bibliography that
+    haven't been cited in the main body.
+preview: preview.png
+authors:
+  original: "Cambridge University Press"
+  templater:
+    name: "Hendrik Erz"
+    email: "hendrik@zettlr.com"
+    website: "https://www.hendrik-erz.de/"
+copyright: "Copyright (c) by Mats Dahlgren (1996-1998), Joseph Wright (2008-2018), Overleaf (2019), Donald Arsenau (1989-2009, cite.sty)"
+license: "LaTeX Project Public License (LPPL) 1.3c or later"

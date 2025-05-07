@@ -1,0 +1,6 @@
+# Defaults file for IC2S2 template
+reader: markdown
+writer: pdf
+pdf-engine: xelatex
+template: ./template.tex
+shift-heading-level-by: 1 # Heading 1 -> Heading 2
