@@ -1,6 +1,7 @@
 // This file takes all templates in the template folder, and (re)generates
 // the metadata.json file.
 import fs from 'fs'
+import path from 'path'
 import yaml from 'yaml'
 
 const templates = fs.readdirSync('templates')
@@ -29,6 +30,11 @@ for (const template of templates) {
   parsedData = yaml.parse(data)
   templateData.reader = parsedData.reader
   templateData.writer = parsedData.writer
+
+  // Transform image to URL
+  const basePath = `/Zettlr/pandoc-templates/refs/heads/main/templates/`
+  const fullPath = path.join(basePath, template, templateData.preview)
+  templateData.preview = 'https://raw.githubusercontent.com' + fullPath
 
   metadata.templates.push(templateData)
 }

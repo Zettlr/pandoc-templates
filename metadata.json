@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2025-05-07T12:49:07.278Z",
+  "generatedOn": "2025-05-07T12:54:58.944Z",
   "templates": [
     {
       "id": "cup-journal",
@@ -8,7 +8,7 @@
       "updated": "2025-05-04T10:20:00+02:00",
       "description": "Use this template to export your submission to the journal Network Science\nusing the official template from Cambridge University Press.\n",
       "instructions": "This template requires the frontmatter variables `title`, `abstract`,\n`keywords`, and `author`. If any of these is not present, the PDF engine may\nthrow errors.\n\nThis template supports the frontmatter variable `cup-journal`, which must be\none of the supported journals of this template:\n\n* Annals of Actuarial Science: `aas``\n* British Journal of Political Science: `jps`\n* Network Science: `nws`\n* Political Analysis: `pla`\n* Political Science Research and Methods: `ram`\n* Evolutionary Human Sciences: `ehs`\n* Natural Language Processing: `nlp`\n\nFurther frontmatter variables supported by this template:\n\n* `title`: The article title\n* `author`: A list of authors, with sub-keys `name`, `affiliation`, and\n  `email`. Property `email` is optional; each `author` that has `email` set is\n  assumed to be a corresponding author.\n* `keywords`: A list of keywords\n* `abstract`: The article's abstract\n* `acknowledgements`: An acknowledgements section\n* `funding-statement`: A funding statement\n* `competing-interests`: A competing interests statement\n* `data-availability-statement`: A data availability statement\n* `ethical-standards`: A statement on ethical standards\n* `author-contributions`: An author contributions statement\n* `nocite-ids`: A list of works to be referenced in the bibliography that\n  haven't been cited in the main body.\n",
-      "preview": "preview.png",
+      "preview": "https://raw.githubusercontent.com/Zettlr/pandoc-templates/refs/heads/main/templates/cup-journal/preview.png",
       "authors": {
         "original": "Cambridge University Press",
         "templater": {
@@ -26,7 +26,7 @@
       "id": "ic2s2",
       "name": "IC2S2 Conference Abstract",
       "version": 1,
-      "preview": "preview.png",
+      "preview": "https://raw.githubusercontent.com/Zettlr/pandoc-templates/refs/heads/main/templates/ic2s2/preview.png",
       "updated": "2025-05-04T18:10:00+02:00",
       "description": "This template allows you to format your extended conference abstracts for the\nInternational Conference of Computational Social Science (IC2S2). This\ntemplate is valid for IC2S2 2025 (Norrköping, Sweden).\n",
       "authors": {
