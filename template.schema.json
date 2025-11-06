@@ -29,10 +29,6 @@
       "description": "If the template requires some setup, explain this here. Also, describe any variables the template supports.",
       "type": "string"
     },
-    "preview": {
-      "description": "Relative path to the preview picture (usually `preview.png`).",
-      "type": "string"
-    },
     "authors": {
       "type": "object",
       "description": "People or organizations who have contributed to this template.",
@@ -142,7 +138,6 @@
     "version",
     "updated",
     "description",
-    "preview",
     "authors",
     "copyright"
   ]

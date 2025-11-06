@@ -36,7 +36,6 @@ instructions: |
   * `author-contributions`: An author contributions statement
   * `nocite-ids`: A list of works to be referenced in the bibliography that
     haven't been cited in the main body.
-preview: preview.png
 authors:
   original: "Cambridge University Press"
   templater:

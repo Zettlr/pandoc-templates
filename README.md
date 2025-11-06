@@ -108,10 +108,6 @@ An optional field with specific instructions for using this template, e.g., for 
 
 The `changelog` field is optional for version 1, but mandatory for every version afterwards. It is a list of entries, ordered chronologically descending. That is, if you add a changelog entry to an existing template, it must be the first entry. (This makes it easier for users to parse changelogs, as they can be sure the first entry is the most recent change.) You can use Markdown in it, but each item should be short and concise. Use this property in particular to denote changes to the defaults file.
 
-#### `preview` (required)
-
-Provide the name of the preview image. Should be `preview.png`, but may differ depending on your needs.
-
 #### `authors` (required)
 
 Tell users who created the template originally, and who adapted the template to use with Pandoc (may contain the same information if you, e.g., created the template from scratch). If you are a contributor, add your name there, too.
