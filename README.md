@@ -92,10 +92,6 @@ This must be a descriptive name for the template.
 
 The version number. This is simply an integer. This field must be initiated with `1` for a new template. Each change – even if it is just a single character – must result in an increase of this number. "Change" is defined as a single PR, so you can make multiple changes to a template, and only increment the version once.
 
-#### `updated` (required)
-
-The last updated timestamp, using the [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). Should include the timezone (e.g., `+02:00` for CEST, `-05:00` for EST, or `Z` for UTC).
-
 #### `description` (required)
 
 Describe what this template is, what it aims for, or anything else that is important to know before choosing to use this template. Markdown is supported. Do not include a description of the variables supported by this template, or any setup instructions here. See below.
