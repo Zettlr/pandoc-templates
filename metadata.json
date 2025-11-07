@@ -1,14 +1,12 @@
 {
-  "generatedOn": "2025-05-07T13:56:19.760Z",
+  "generatedOn": "2025-11-07T09:22:55.795Z",
   "templates": [
     {
       "id": "cup-journal",
       "name": "Cambridge University Press Journal Template",
       "version": 1,
-      "updated": "2025-05-04T10:20:00+02:00",
       "description": "Use this template to export your submission to the journal Network Science\nusing the official template from Cambridge University Press.\n",
       "instructions": "This template requires the frontmatter variables `title`, `abstract`,\n`keywords`, and `author`. If any of these is not present, the PDF engine may\nthrow errors.\n\nThis template supports the frontmatter variable `cup-journal`, which must be\none of the supported journals of this template:\n\n* Annals of Actuarial Science: `aas``\n* British Journal of Political Science: `jps`\n* Network Science: `nws`\n* Political Analysis: `pla`\n* Political Science Research and Methods: `ram`\n* Evolutionary Human Sciences: `ehs`\n* Natural Language Processing: `nlp`\n\nFurther frontmatter variables supported by this template:\n\n* `title`: The article title\n* `author`: A list of authors, with sub-keys `name`, `affiliation`, and\n  `email`. Property `email` is optional; each `author` that has `email` set is\n  assumed to be a corresponding author.\n* `keywords`: A list of keywords\n* `abstract`: The article's abstract\n* `acknowledgements`: An acknowledgements section\n* `funding-statement`: A funding statement\n* `competing-interests`: A competing interests statement\n* `data-availability-statement`: A data availability statement\n* `ethical-standards`: A statement on ethical standards\n* `author-contributions`: An author contributions statement\n* `nocite-ids`: A list of works to be referenced in the bibliography that\n  haven't been cited in the main body.\n",
-      "preview": "https://raw.githubusercontent.com/Zettlr/pandoc-templates/refs/heads/main/templates/cup-journal/preview.png",
       "authors": {
         "original": "Cambridge University Press",
         "templater": {
@@ -20,14 +18,13 @@
       "copyright": "Copyright (c) by Mats Dahlgren (1996-1998), Joseph Wright (2008-2018), Overleaf (2019), Donald Arsenau (1989-2009, cite.sty)",
       "license": "LaTeX Project Public License (LPPL) 1.3c or later",
       "reader": "markdown",
-      "writer": "pdf"
+      "writer": "pdf",
+      "preview": "https://raw.githubusercontent.com/Zettlr/pandoc-templates/refs/heads/main/templates/cup-journal/preview.png"
     },
     {
       "id": "ic2s2",
       "name": "IC2S2 Conference Abstract",
       "version": 1,
-      "preview": "https://raw.githubusercontent.com/Zettlr/pandoc-templates/refs/heads/main/templates/ic2s2/preview.png",
-      "updated": "2025-05-04T18:10:00+02:00",
       "description": "This template allows you to format your extended conference abstracts for the\nInternational Conference of Computational Social Science (IC2S2). This\ntemplate is valid for IC2S2 2025 (Norrköping, Sweden).\n",
       "authors": {
         "original": {
@@ -42,7 +39,23 @@
       },
       "copyright": "ICSSI",
       "reader": "markdown",
-      "writer": "pdf"
+      "writer": "pdf",
+      "preview": "https://raw.githubusercontent.com/Zettlr/pandoc-templates/refs/heads/main/templates/ic2s2/preview.png"
+    },
+    {
+      "id": "simple-application-cover-letter",
+      "name": "Simple Application Cover Letter",
+      "version": 1,
+      "description": "A simple cover letter template for applications.\n",
+      "instructions": "This template allows you to typeset cover letters for applications. It is\nintended to be run simply by writing the main body of the cover letter in a\nMarkdown file and provide some metadata, including addresses, as YAML\nfrontmatter variables. You have the following variables available:\n\n* `author`: An object with information about yourself. It must contain the\n  following keys:\n  * `firstname`: Your firstname, and potential middle names\n  * `lastname`: Your last, or family name\n  * `address`: This is a list of address lines. These appear on the top-right.\n  * `email`: Your email address. Appears below the address.\n  * `phone`: Your phone number. Appears below the address.\n* `subject`: This is the subject line of the cover letter. Appears between\n  addressée and the main body of your letter.\n* `to_address`: This is a list of address lines to where you are addressing\n  the letter.\n* `attachments`: If you have attachments to your application (such as a CV),\n  and want to include them on your letter, list them here.\n* `attachments_title`: By default, the attachment section will be headed by\n  \"Attachments\". Here you can customize this (e.g., by translating).\n\nNote that you also have some of the standard Pandoc variables such as\n`fontsize` available to use in your frontmatter, too.\n",
+      "authors": {
+        "original": "Unknown",
+        "templater": "Hendrik Erz"
+      },
+      "copyright": "None",
+      "reader": "markdown+mark",
+      "writer": "pdf",
+      "preview": "https://raw.githubusercontent.com/Zettlr/pandoc-templates/refs/heads/main/templates/simple-application-cover-letter/preview.png"
     }
   ]
 }

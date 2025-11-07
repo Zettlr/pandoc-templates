@@ -16,6 +16,7 @@ const metadata = {
 }
 
 for (const template of templates) {
+  console.log(`Reading template ${template}...`)
   let data, parsedData
   data = fs.readFileSync(`templates/${template}/index.yml`, 'utf-8')
   parsedData = yaml.parse(data)
@@ -33,7 +34,7 @@ for (const template of templates) {
 
   // Transform image to URL
   const basePath = `/Zettlr/pandoc-templates/refs/heads/main/templates/`
-  const fullPath = path.join(basePath, template, templateData.preview)
+  const fullPath = path.join(basePath, template, 'preview.png')
   templateData.preview = 'https://raw.githubusercontent.com' + fullPath
 
   metadata.templates.push(templateData)
