@@ -1,0 +1,32 @@
+name: Simple Application Cover Letter
+version: 1
+description: |
+  A simple cover letter template for applications.
+instructions: |
+  This template allows you to typeset cover letters for applications. It is
+  intended to be run simply by writing the main body of the cover letter in a
+  Markdown file and provide some metadata, including addresses, as YAML
+  frontmatter variables. You have the following variables available:
+
+  * `author`: An object with information about yourself. It must contain the
+    following keys:
+    * `firstname`: Your firstname, and potential middle names
+    * `lastname`: Your last, or family name
+    * `address`: This is a list of address lines. These appear on the top-right.
+    * `email`: Your email address. Appears below the address.
+    * `phone`: Your phone number. Appears below the address.
+  * `subject`: This is the subject line of the cover letter. Appears between
+    addressée and the main body of your letter.
+  * `to_address`: This is a list of address lines to where you are addressing
+    the letter.
+  * `attachments`: If you have attachments to your application (such as a CV),
+    and want to include them on your letter, list them here.
+  * `attachments_title`: By default, the attachment section will be headed by
+    "Attachments". Here you can customize this (e.g., by translating).
+  
+  Note that you also have some of the standard Pandoc variables such as
+  `fontsize` available to use in your frontmatter, too.
+authors:
+  original: Unknown
+  templater: Hendrik Erz
+copyright: None

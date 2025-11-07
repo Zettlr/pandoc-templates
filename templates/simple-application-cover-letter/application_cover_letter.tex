@@ -1,0 +1,191 @@
+$passoptions.latex()$
+\documentclass[
+$for(babel-otherlangs)$
+  $babel-otherlangs$,
+$endfor$
+$if(babel-lang)$
+  $babel-lang$,
+$endif$
+$if(fontsize)$
+  $fontsize$,
+$endif$
+$if(papersize)$
+  $papersize$paper,
+$else$
+  a4paper,
+$endif$
+$for(classoption)$
+  $classoption$$sep$,
+$endfor$
+]{article}
+
+%%%%%%%
+
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+$if(cancel)$
+\usepackage{cancel}
+$endif$
+$--
+$-- section numbering
+$--
+$if(numbersections)$
+\setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$5$endif$}
+$else$
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+$endif$
+
+$fonts.latex()$
+$font-settings.latex()$
+$common.latex()$
+$for(header-includes)$
+$header-includes$
+$endfor$
+$after-header-includes.latex()$
+$hypersetup.latex()$
+
+$if(pdf-trailer-id)$
+
+\ifXeTeX
+\special{pdf:trailerid [ $pdf-trailer-id$ ]}
+\fi
+\ifPDFTeX
+\pdftrailerid{}
+\pdftrailer{/ID [ $pdf-trailer-id$ ]}
+\fi
+\ifLuaTeX
+\pdfvariable trailerid {[ $pdf-trailer-id$ ]}
+\fi
+$endif$
+
+%%%%%%%
+
+\usepackage[$if(babel-lang)$$babel-lang$$else$english$endif$]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{marvosym}
+\usepackage[dvips]{graphicx}
+
+\pagestyle{empty}
+
+\def\textblockwidth{35mm}
+$if(attachments)$
+\def\marginaliasize{50mm}
+$else$
+\def\marginaliasize{20mm}
+$endif$
+
+\usepackage[
+    scale=0.775,
+    top=20mm,
+    bottom=20mm,
+    left=\marginaliasize, % To place attachment list to the side
+    right=20mm
+]{geometry}
+\setlength{\parindent}{0pt}
+\addtolength{\parskip}{6pt}
+
+\renewcommand{\ttdefault}{pcr}
+\usepackage{url}
+\urlstyle{tt}
+
+\usepackage{hyperref}
+\hypersetup{
+    pdfauthor   = $author.firstname$ $author.lastname$,%
+    pdftitle    = Application $author.firstname$ $author.lastname$,%
+    pdfsubject  = Application,%
+    pdfcreator  = \LaTeX,%
+    pdfproducer = \LaTeX
+}
+
+\definecolor{color1}{RGB}{85,85,125}
+\definecolor{color2}{RGB}{57,74,138}
+\definecolor{attachments}{RGB}{128, 128, 128}
+\hypersetup{pdfborder=0 0 0}
+\usepackage{pdfpages}
+
+\usepackage{ragged2e} % For enabling hyphenation on demand (RaggedRight instead of raggedright)
+
+% Additional stuff for the CV attachments
+\usepackage[overlay,absolute]{textpos}
+\usepackage{enumitem} % For very tight lists
+
+\begin{document}
+
+\sffamily   % for use with a résumé using sans serif fonts;
+%\rmfamily  % for use with a résumé using serif fonts;
+
+$for(include-before)$
+$include-before$
+
+$endfor$
+
+$if(linestretch)$
+\setstretch{$linestretch$}
+$endif$
+
+\hfill%
+
+\begin{minipage}[t]{1\textwidth}
+\begin{FlushRight}
+	{\bfseries\color{color1} $author.firstname$ $author.lastname$}\\[.35ex]
+	\small%
+    $for(author.address)$
+    $it$ \\
+    $endfor$ [.35ex]
+	\Mobilefone~$author.phone$\\
+	\Letter~\href{mailto:$author.email$}{$author.email$}
+\end{FlushRight}
+\end{minipage}
+
+%
+{\color{color1}\rule{\textwidth}{.25ex}}
+%
+\vspace{.25ex}
+
+\begin{minipage}[t]{1\textwidth}
+\begin{FlushLeft}
+	$for(to_address)$
+    $to_address$ \\
+    $endfor$
+\end{FlushLeft}
+\end{minipage}
+
+\vspace{-2em}
+\begin{minipage}[t]{1\textwidth}
+\begin{FlushRight}
+    $if(date)$
+    $date$
+    $else$
+	\today
+    $endif$
+\end{FlushRight}
+\end{minipage}
+
+\vspace{1em}
+{\bfseries \color{color2}$subject$}
+\vspace{1em}
+
+$body$
+
+$if(attachments)$
+\textblockorigin{0mm}{0mm}
+\begin{textblock*}{30mm}[0,0](15mm,20mm) % Place on top
+    \begin{minipage}[t]{30mm}
+        \raggedright
+        \color{attachments}
+        \fontsize{8}{8}\selectfont
+        %\tiny
+        {\bfseries $if(attachments_title)$$attachments_title$$else$Attachments$endif$}\\[5mm]
+        \begin{itemize}[leftmargin=0mm]
+            \setlength\itemsep{2pt}
+            $for(attachments)$
+            \item[--] $attachments$
+            $endfor$
+        \end{itemize}
+    \end{minipage}
+\end{textblock*}
+$endif$
+
+\end{document}

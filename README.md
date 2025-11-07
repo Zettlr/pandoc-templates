@@ -6,6 +6,8 @@ Welcome to Zettlr's Pandoc Template Repository. This repository hosts a variety 
 
 This repository aims to grow over time based on user-contributions. Each folder contains all necessary files for one template, including a metadata file with some information.
 
+Each template folder contains at least four required files: A `preview.png` to see what the template looks like in action, an `index.yml` that describes the template, a `defaults.yml` that defines how Pandoc should export files using the template, and a template file itself, which varies depending on the target format (e.g., HTML, PDF, or DOCX).
+
 ## Usage
 
 To use these templates, you have two options. The first is to use [Zettlr](https://www.zettlr.com/), which parses the metadata file from this repository automatically, and allows you to install these templates with a beautiful, graphical user interface.
